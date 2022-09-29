@@ -1,5 +1,6 @@
 import pytube
-import customDownload
+from customDownload import customDownload
+import audioDownload
 
 def downloadWithLink(link):
     pyt = pytube.YouTube(link)
@@ -41,22 +42,30 @@ def main():
                                                         Made by @JGoterris
     """)
 
-    option = int(input("1. Download with link\n2. Download with file\n3. Custom download\n0. Exit\n\nOption: "))
+    option = int(input("1. Download with link\n2. Download with playlist\n3. Download with file\n0. Exit\n\nOption: "))
 
     match option:
         case 1:
-            link = str(input("\nLink: "))
-            downloadWithLink(link)
-            print("Completed!!")
+            print("--------------------------------------------------------")
+            link = str(input("Link: "))
+            optionLink = int(input("\nFormat:\n1. Video\n2. Audio\n3. Custom download\n\nOpción: "))
+            match optionLink:
+                case 1:
+                    downloadWithLink(link)
+                case 2:
+                    audioDownload.audioDownload(link)
+                    print("\nCompleted!!")
+                case 3:
+                    customDownload(link)
+                    pyt_data = pytube.YouTube(link)
+                    showData(pyt_data)
+                    print("Completed!!")
         case 2:
+            playlistLink = str(input("Link: "))
+        case 3:
             downloadWithFile()
             print("Completed!!")
-        case 3:
-            link = str(input("\nLink: "))
-            customDownload.customDownload(link)
-            pyt_data = pytube.YouTube(link)
-            showData(pyt_data)
-            print("Completed!!")
+            
         case 0:
             exit()
 
