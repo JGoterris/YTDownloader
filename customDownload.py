@@ -11,9 +11,9 @@ def customDownload(link):
     lista_itags = []
     indice = 1
 
-    bordeHorizontal("_",65)
+    bordeHorizontal("_",81)
 
-    print(f"|{'Opción':^15}|{'Formato':^15}|{'Calidad':^15}|{'FPS/ACodec':^15}|")
+    print(f"|{'Opción':^15}|{'Formato':^15}|{'Calidad':^15}|{'FPS/ACodec':^15}|{'Progressive':^15}|")
 
     for formato in formatos:
         f = str(formato).split('"')
@@ -21,11 +21,15 @@ def customDownload(link):
         typef = f[3]
         res = f[5]
         fps = f[7]
+        if "False" in f:
+            progressive = "False"
+        elif "True" in f:
+            progressive = "True"
         lista_itags.append(itag)
-        print(f"|{indice:^15}|{typef:^15}|{res:^15}|{fps:^15}|")
+        print(f"|{indice:^15}|{typef:^15}|{res:^15}|{fps:^15}|{progressive:^15}|")
         indice+=1
 
-    bordeHorizontal("-",65)
+    bordeHorizontal("-",81)
 
     op_calidad = int(input("Opción: "))
     pyt_selected=pyt.streams.get_by_itag(lista_itags[op_calidad-1])
