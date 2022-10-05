@@ -64,6 +64,7 @@ def main():
                     showData(pyt_data)
                     print("Completed!!")
         case 2:
+            print("--------------------------------------------------------")
             link = str(input("Link: "))
             optionLink = int(input("\nFormat:\n1. Video (video and audio in the same file)\n2. Audio\n\nOpción: "))
             match optionLink:

@@ -9,20 +9,20 @@ def videoDownload(link):
         case 2:
             webmVideoDownload(link)
 
-def mp4VideoDownload(link):
+def mp4VideoDownload(link, fichero=""):
     pyt = pytube.YouTube(link)
     try:
-        pyt.streams.filter(progressive=True, file_extension='mp4').order_by('resolution').desc().first().download("./Downloads")
+        pyt.streams.filter(progressive=True, file_extension='mp4').order_by('resolution').desc().first().download("./Downloads"+"/"+fichero)
     except:
         print("\n/////////////////////////////////////////")
         print("Extensión no disponible, pruebe con otra")
         print("/////////////////////////////////////////\n")
         videoDownload(link)
 
-def webmVideoDownload(link):
+def webmVideoDownload(link, fichero=""):
     pyt = pytube.YouTube(link)
     try:
-        pyt.streams.filter(progressive=True, file_extension='webm').order_by('resolution').desc().first().download("./Downloads")
+        pyt.streams.filter(progressive=True, file_extension='webm').order_by('resolution').desc().first().download("./Downloads"+"/"+fichero)
     except:
         print("\n/////////////////////////////////////////")
         print("Extensión no disponible, pruebe con otra")

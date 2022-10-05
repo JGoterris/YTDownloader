@@ -12,7 +12,7 @@ def playlistDownload(link, typeFile):
                 try:
                     for url in playlist.video_urls:
                         print(f"Downloading {pytube.YouTube(url).title}...")
-                        videoDownload.mp4VideoDownload(url)
+                        videoDownload.mp4VideoDownload(url,playlist.title)
                 except:
                     print("\n////////////////////////////////////////////////////////////////////////")
                     print("Extensión no disponible, pruebe con otra o descargue de forma individual")
@@ -22,7 +22,7 @@ def playlistDownload(link, typeFile):
                 try:
                     for url in playlist.video_urls:
                         print(f"Downloading {pytube.YouTube(url).title}...")
-                        videoDownload.webmVideoDownload(url)
+                        videoDownload.webmVideoDownload(url,playlist.title)
                 except:
                     print("\n////////////////////////////////////////////////////////////////////////")
                     print("Extensión no disponible, pruebe con otra o descargue de forma individual")
@@ -37,7 +37,7 @@ def playlistDownload(link, typeFile):
                 try:
                     for url in playlist.video_urls:
                         print(f"Downloading {pytube.YouTube(url).title}...")
-                        audioDownload.mp4AudioDownload(url)
+                        audioDownload.mp4AudioDownload(url,playlist.title)
                 except:
                     print("\n////////////////////////////////////////////////////////////////////////")
                     print("Extensión no disponible, pruebe con otra o descargue de forma individual")
@@ -47,7 +47,7 @@ def playlistDownload(link, typeFile):
                 try:
                     for url in playlist.video_urls:
                         print(f"Downloading {pytube.YouTube(url).title}...")
-                        audioDownload.webmAudioDownload(link)
+                        audioDownload.webmAudioDownload(link,playlist.title)
                 except:
                     print("\n////////////////////////////////////////////////////////////////////////")
                     print("Extensión no disponible, pruebe con otra o descargue de forma individual")
