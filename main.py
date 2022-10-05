@@ -2,6 +2,7 @@ import pytube
 from customDownload import customDownload
 from audioDownload import audioDownload
 from videoDownload import videoDownload
+from playlistDownload import playlistDownload
 
 def downloadWithLink(link):
     pyt = pytube.YouTube(link)
@@ -63,7 +64,15 @@ def main():
                     showData(pyt_data)
                     print("Completed!!")
         case 2:
-            playlistLink = str(input("Link: "))
+            link = str(input("Link: "))
+            optionLink = int(input("\nFormat:\n1. Video (video and audio in the same file)\n2. Audio\n\nOpción: "))
+            match optionLink:
+                case 1:
+                    playlistDownload(link, "video")
+                    print("\nCompleted!!")
+                case 2:
+                    playlistDownload(link, "audio")
+                    print("\nCompleted!!")
         case 3:
             downloadWithFile()
             print("Completed!!")
