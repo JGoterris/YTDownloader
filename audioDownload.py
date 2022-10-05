@@ -24,12 +24,12 @@ def webmAudioDownload(link, fichero=""):
 def mp3AudioDownload(link, fichero=""):
     pyt = pytube.YouTube(link)
     pyt.streams.filter(only_audio=True).order_by('abr').desc().first().download("./Temporal")
-    conversorMp3()
+    conversorMp3(fichero)
     
 
 def audioDownload(link):
     print("--------------------------------------------------------")
-    fileExtension = int(input("Extension:\n1. mp4\n2. webm\n3. mp3\n\nOption: "))
+    fileExtension = int(input("Extension:\n1. mp4\n2. webm\n3. mp3 (always works)\n\nOption: "))
     match fileExtension:
         case 1:
             mp4AudioDownload(link)

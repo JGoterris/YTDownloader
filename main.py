@@ -10,18 +10,6 @@ def downloadWithLink(link):
     pyt.streams.first().download("./Downloads")
     showData(pyt)
 
-def downloadWithFile():
-    file = str(input("\nFile (def: links.txt): "))
-    print()
-    if file == "" or file.replace(" ","") == "":
-        with open("links.txt") as f:
-            for line in f:
-                downloadWithLink(line)
-    else:
-        with open(file) as f:
-            for line in f:
-                downloadWithLink(line)
-
 def showData(pyt):
     print("\n------------------------------------------------------------")
     print(f"Title: {pyt.title}")
@@ -44,7 +32,7 @@ def main():
                                                         Made by @JGoterris
     """)
 
-    option = int(input("1. Download with link\n2. Download with playlist\n3. Download with file\n0. Exit\n\nOption: "))
+    option = int(input("1. Download with link\n2. Download with playlist\n0. Exit\n\nOption: "))
 
     match option:
         case 1:
@@ -73,11 +61,7 @@ def main():
                     print("\nCompleted!!")
                 case 2:
                     playlistDownload(link, "audio")
-                    print("\nCompleted!!")
-        case 3:
-            downloadWithFile()
-            print("Completed!!")
-            
+                    print("\nCompleted!!")        
         case 0:
             exit()
 
