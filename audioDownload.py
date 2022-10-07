@@ -1,9 +1,11 @@
 import pytube
 from conversorMp3 import conversorMp3
+import os
 
 def mp4AudioDownload(link, fichero=""):
     pyt = pytube.YouTube(link)
     try:
+        print(f"Downloading {pyt.title}...")
         pyt.streams.filter(only_audio=True, file_extension='mp4').order_by('abr').desc().first().download("./Downloads"+"/"+fichero)
     except:
         print("\n/////////////////////////////////////////")
@@ -14,6 +16,7 @@ def mp4AudioDownload(link, fichero=""):
 def webmAudioDownload(link, fichero=""):
     pyt = pytube.YouTube(link)
     try:
+        print(f"Downloading {pyt.title}...")
         pyt.streams.filter(only_audio=True, file_extension='webm').order_by('abr').desc().first().download("./Downloads"+"/"+fichero)
     except:
         print("\n/////////////////////////////////////////")
@@ -23,6 +26,7 @@ def webmAudioDownload(link, fichero=""):
 
 def mp3AudioDownload(link, fichero=""):
     pyt = pytube.YouTube(link)
+    print(f"Downloading {pyt.title}...")
     pyt.streams.filter(only_audio=True).order_by('abr').desc().first().download("./Temporal")
     conversorMp3(fichero)
     
@@ -37,3 +41,4 @@ def audioDownload(link):
             webmAudioDownload(link)
         case 3:
             mp3AudioDownload(link)
+            os.rmdir("./Temporal")

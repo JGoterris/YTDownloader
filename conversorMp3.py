@@ -12,5 +12,3 @@ def conversorMp3(fichero=""):
         clip = mp.AudioFileClip("./Temporal/"+f)
         clip.write_audiofile("./Downloads/"+fichero+"/"+f[:-cutExtension]+".mp3")
         os.remove("./Temporal/"+f)
-    
-    os.rmdir("./Temporal")

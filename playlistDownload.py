@@ -1,6 +1,7 @@
 import pytube
 import videoDownload
 import audioDownload
+import os
 
 def playlistDownload(link, typeFile):
     playlist = pytube.Playlist(link)
@@ -11,7 +12,6 @@ def playlistDownload(link, typeFile):
             case 1:
                 try:
                     for url in playlist.video_urls:
-                        print(f"Downloading {pytube.YouTube(url).title}...")
                         videoDownload.mp4VideoDownload(url,playlist.title)
                 except:
                     print("\n////////////////////////////////////////////////////////////////////////")
@@ -21,7 +21,6 @@ def playlistDownload(link, typeFile):
             case 2:
                 try:
                     for url in playlist.video_urls:
-                        print(f"Downloading {pytube.YouTube(url).title}...")
                         videoDownload.webmVideoDownload(url,playlist.title)
                 except:
                     print("\n////////////////////////////////////////////////////////////////////////")
@@ -36,7 +35,6 @@ def playlistDownload(link, typeFile):
             case 1:
                 try:
                     for url in playlist.video_urls:
-                        print(f"Downloading {pytube.YouTube(url).title}...")
                         audioDownload.mp4AudioDownload(url,playlist.title)
                 except:
                     print("\n////////////////////////////////////////////////////////////////////////")
@@ -46,7 +44,6 @@ def playlistDownload(link, typeFile):
             case 2:
                 try:
                     for url in playlist.video_urls:
-                        print(f"Downloading {pytube.YouTube(url).title}...")
                         audioDownload.webmAudioDownload(url,playlist.title)
                 except:
                     print("\n////////////////////////////////////////////////////////////////////////")
@@ -55,5 +52,5 @@ def playlistDownload(link, typeFile):
                     playlistDownload(link, "audio")
             case 3:
                 for url in playlist.video_urls:
-                        print(f"Downloading {pytube.YouTube(url).title}...")
                         audioDownload.mp3AudioDownload(url,playlist.title)
+                os.rmdir("./Temporal")

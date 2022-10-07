@@ -4,12 +4,6 @@ from audioDownload import audioDownload
 from videoDownload import videoDownload
 from playlistDownload import playlistDownload
 
-def downloadWithLink(link):
-    pyt = pytube.YouTube(link)
-    print("Downloading...")
-    pyt.streams.first().download("./Downloads")
-    showData(pyt)
-
 def showData(pyt):
     print("\n------------------------------------------------------------")
     print(f"Title: {pyt.title}")
