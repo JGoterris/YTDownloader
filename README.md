@@ -1,7 +1,7 @@
 
 # YTDownloader
 
-Una simple app que desarrollé hace algunos años para facilitarme la descarga de contenido de YouTube.
+Un simple programa que desarrollé hace algunos años para facilitarme la descarga de contenido de YouTube.
 
 
 
