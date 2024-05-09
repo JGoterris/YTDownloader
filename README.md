@@ -34,7 +34,7 @@ python main.py
 ```
 ## Usage
 
-```bash
+```
 usuario@equipo:~$ python main.py
 
  __     _________ _____                      _                 _
